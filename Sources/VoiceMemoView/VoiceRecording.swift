@@ -10,7 +10,7 @@ import Foundation
 import Speech
 import os
 
-class VoiceRecording : SpeechRecording {
+public class VoiceRecording : SpeechRecording {
     public let uuid : UUID
     public let url : URL
     private var recognizer : SFSpeechRecognizer?
@@ -50,7 +50,7 @@ class VoiceRecording : SpeechRecording {
         }
     }
 
-    override func start(_ completion: ((SpeechRecording, Error?) -> Void)? = nil ) {
+    public override func start(_ completion: ((SpeechRecording, Error?) -> Void)? = nil ) {
         if self.recorder == nil {
             do {
                 let settings = [
@@ -74,7 +74,7 @@ class VoiceRecording : SpeechRecording {
             }
         }
     }
-    override func stop() {
+    public override func stop() {
         if self.isRecording {
             if let record = self.recorder {
                 record.stop()
@@ -83,7 +83,7 @@ class VoiceRecording : SpeechRecording {
             self.isPaused = false
         }
     }
-    override func pause() {
+    public override func pause() {
         if self.isRecording {
             if let record = self.recorder {
                 record.pause()
