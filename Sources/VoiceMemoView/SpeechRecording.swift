@@ -59,6 +59,7 @@ public class SpeechRecording : NSObject, ObservableObject {
         if let sess = session {
             do {
                 try sess.setActive(false, options: .notifyOthersOnDeactivation)
+                isRecording = false
             } catch {
                 os_log("%@", log: .default, type: .error,
                        "SpeechRecording.stop setActive error: \(error.localizedDescription)" )
@@ -67,6 +68,14 @@ public class SpeechRecording : NSObject, ObservableObject {
     }
     
     public func pause() {
-        
+    }
+    
+    public func reset() {
+        if isRecording {
+            stop()
+        }
+        isPaused = false
+        self.segments.removeAll()
+        self.transcription = ""
     }
 }
