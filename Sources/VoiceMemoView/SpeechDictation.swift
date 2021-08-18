@@ -10,18 +10,18 @@ import Foundation
 import Speech
 import os
 
-class SpeechDictation : SpeechRecording {
+public class SpeechDictation : SpeechRecording {
     private let audioEngine = AVAudioEngine()
     private let inputNode : AVAudioInputNode
     private var recognitionRequest : SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask : SFSpeechRecognitionTask?
 
-    override init(pushToTalk: Bool = false) {
+    public override init(pushToTalk: Bool = false) {
         self.inputNode = audioEngine.inputNode
         super.init(pushToTalk: pushToTalk)
     }
     
-    override func start(_ completion: ((SpeechRecording, Error?) -> Void)? = nil ) {
+    public override func start(_ completion: ((SpeechRecording, Error?) -> Void)? = nil ) {
         guard self.isRecording == false else {
             if let comp = completion {
                 comp(self, SpeechError("Already recording."))
@@ -96,7 +96,7 @@ class SpeechDictation : SpeechRecording {
         }
     }
 
-    override func stop() {
+    public override func stop() {
         super.stop()
         guard self.isRecording else { return }
         if let task = self.recognitionTask {

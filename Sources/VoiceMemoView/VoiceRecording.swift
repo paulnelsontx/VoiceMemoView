@@ -17,7 +17,7 @@ class VoiceRecording : SpeechRecording {
     private var recorder : AVAudioRecorder?
     private var persistent = false
     
-    init(_ persistent : Bool = true ) {
+    public init(_ persistent : Bool = true ) {
         self.uuid = UUID()
         var folder : URL?
         if persistent {
@@ -93,7 +93,7 @@ class VoiceRecording : SpeechRecording {
     }
 
     
-    func transcribe(url: URL, completion: @escaping (SpeechRecording,Error?) ->Void) {
+    public func transcribe(url: URL, completion: @escaping (SpeechRecording,Error?) ->Void) {
         if let rec = SpeechModel.shared.recognizer {
             let request = SFSpeechURLRecognitionRequest(url: url)
             request.shouldReportPartialResults = false

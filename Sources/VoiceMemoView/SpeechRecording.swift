@@ -10,7 +10,7 @@ import SwiftUI
 import Speech
 import os
 
-struct SpeechError : Error {
+public struct SpeechError : Error {
     var localizedDescription: String
     
     init(_ desc: String ) {
@@ -18,7 +18,7 @@ struct SpeechError : Error {
     }
 }
 
-class SpeechRecording : NSObject, ObservableObject {
+public class SpeechRecording : NSObject, ObservableObject {
     public var pushToTalk : Bool
     public var pushToTalkLabel : LocalizedStringKey = "SPEECHRECORD_PUSH_TO_TALK_LABEL"
     @Published var isRecording = false
@@ -27,11 +27,11 @@ class SpeechRecording : NSObject, ObservableObject {
     @Published var transcription : String = ""
     @Published var segments = [String]()
     
-    init( pushToTalk: Bool = false) {
+    public init( pushToTalk: Bool = false) {
         self.pushToTalk = pushToTalk
     }
     
-    func configureSession() -> Bool {
+    public func configureSession() -> Bool {
         if session != nil {
             return true
         }
