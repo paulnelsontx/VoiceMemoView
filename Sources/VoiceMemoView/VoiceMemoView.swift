@@ -11,8 +11,8 @@ import Speech
 
 
 public struct VoiceMemoView : View {
-    @ObservedObject var recorder : SpeechRecording
-    @ObservedObject var model = SpeechModel.shared
+    @ObservedObject public var recorder : SpeechRecording
+    @ObservedObject public var model = SpeechModel.shared
     @State private var showEnableSpeech = false
     @State private var alertInfo : AlertInfo?
     

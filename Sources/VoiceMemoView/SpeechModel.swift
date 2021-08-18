@@ -10,12 +10,12 @@ import Foundation
 import Speech
 import os
 
-struct SpeechRecord : Codable {
+public struct SpeechRecord : Codable {
     public var url : URL
     public var time : Date
 }
 
-class SpeechModel : NSObject, ObservableObject, SFSpeechRecognizerDelegate {
+public class SpeechModel : NSObject, ObservableObject, SFSpeechRecognizerDelegate {
     public var recognizer : SFSpeechRecognizer?
     private static var _speechModel : SpeechModel? = nil
     public static var shared : SpeechModel {
@@ -47,7 +47,7 @@ class SpeechModel : NSObject, ObservableObject, SFSpeechRecognizerDelegate {
             }
         }
     }
-    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer,
+    public func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer,
                           availabilityDidChange available: Bool) {
         self.available = available
     }

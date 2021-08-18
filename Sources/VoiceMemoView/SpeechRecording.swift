@@ -21,11 +21,11 @@ public struct SpeechError : Error {
 public class SpeechRecording : NSObject, ObservableObject {
     public var pushToTalk : Bool
     public var pushToTalkLabel : LocalizedStringKey = "SPEECHRECORD_PUSH_TO_TALK_LABEL"
-    @Published var isRecording = false
-    @Published var isPaused = false
+    @Published public var isRecording = false
+    @Published public var isPaused = false
     public var session : AVAudioSession?
-    @Published var transcription : String = ""
-    @Published var segments = [String]()
+    @Published public var transcription : String = ""
+    @Published public var segments = [String]()
     
     public init( pushToTalk: Bool = false) {
         self.pushToTalk = pushToTalk
