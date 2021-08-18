@@ -32,7 +32,7 @@ public class SpeechModel : NSObject, ObservableObject, SFSpeechRecognizerDelegat
     private var audioRecorder : AVAudioRecorder?
     public var queue : OperationQueue
     
-    override init() {
+    public override init() {
         self.queue = OperationQueue()
         self.queue.qualityOfService = .background
         super.init()
