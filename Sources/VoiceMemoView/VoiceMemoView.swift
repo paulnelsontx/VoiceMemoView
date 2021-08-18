@@ -16,6 +16,10 @@ public struct VoiceMemoView : View {
     @State private var showEnableSpeech = false
     @State private var alertInfo : AlertInfo?
     
+    public init(recorder: SpeechRecording) {
+        self.recorder = recorder
+    }
+    
     private struct AlertInfo : Identifiable {
         var title : Text
         var message : Text
