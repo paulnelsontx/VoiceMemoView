@@ -16,6 +16,10 @@ public struct VoiceMemoView : View {
     @State private var showEnableSpeech = false
     @State private var alertInfo : AlertInfo?
     
+    public init(recorder: SpeechRecording) {
+        self.recorder = recorder
+    }
+    
     private struct AlertInfo : Identifiable {
         var title : Text
         var message : Text
@@ -120,10 +124,11 @@ public struct VoiceMemoView : View {
                 self.showEnableSpeech = true
                 let title = Bundle.module.localizedString(forKey: "SPEECH_DISABLED_ALERT_TITLE", value: "xx No Location", table: nil)
                 let message = Bundle.module.localizedString(forKey: "SPEECH_DISABLED_ALERT_MESSAGE", value: "xx No Location", table: nil)
-
+                let primary = Bundle.module.localizedString(forKey: "SPEECH_DISABLED_ALERT_OPEN", value: "xx Change", table: nil)
+                let secondary = Bundle.module.localizedString(forKey: "SPEECH_BUTTON_CANCEL", value: "xx Cancel", table: nil)
                 var info = AlertInfo(title: title, message: message)
-                info.primary = .default(Text("SPEECH_DISABLED_ALERT_OPEN"), action: openSettings)
-                info.secondary = .default(Text("BUTTON_CANCEL"))
+                info.primary = .default(Text(primary), action: openSettings)
+                info.secondary = .default(Text(secondary))
                 alertInfo = info
             }
         }

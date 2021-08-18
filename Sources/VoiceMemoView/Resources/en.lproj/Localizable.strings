@@ -4,3 +4,4 @@
 "SPEECH_DISABLED_ALERT_MESSAGE" = "You must enable speech for Gas Tripper using the settings app.";
 "SPEECH_DISABLED_ALERT_OPEN" = "Change";
 "SPEECHRECORD_PUSH_TO_TALK_LABEL" = "Hold to Dictate";
+"SPEECH_BUTTON_CANCEL" = "Cancel";"

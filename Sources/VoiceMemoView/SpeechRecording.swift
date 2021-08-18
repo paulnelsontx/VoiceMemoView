@@ -6,7 +6,7 @@
 //  Copyright © 2021 Paul W. Nelson, Nelson Logic. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 import Speech
 import os
 
@@ -20,7 +20,7 @@ public struct SpeechError : Error {
 
 public class SpeechRecording : NSObject, ObservableObject {
     public var pushToTalk : Bool
-    public var pushToTalkLabel : LocalizedStringKey = "SPEECHRECORD_PUSH_TO_TALK_LABEL"
+    public var pushToTalkLabel : String
     @Published public var isRecording = false
     @Published public var isPaused = false
     public var session : AVAudioSession?
@@ -29,6 +29,7 @@ public class SpeechRecording : NSObject, ObservableObject {
     
     public init( pushToTalk: Bool = false) {
         self.pushToTalk = pushToTalk
+        self.pushToTalkLabel = Bundle.module.localizedString(forKey: "SPEECHRECORD_PUSH_TO_TALK_LABEL", value: "xx push to talk", table: nil)
     }
     
     public func configureSession() -> Bool {
