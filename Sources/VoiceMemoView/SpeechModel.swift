@@ -24,6 +24,18 @@ public class SpeechModel : NSObject, ObservableObject, SFSpeechRecognizerDelegat
         return _speechModel!
     }
     @Published public var available = false
+    @Published public var activeRecorder : SpeechRecording?
+    public func setActive(_ recording: SpeechRecording) -> Bool {
+        if activeRecorder == nil {
+            activeRecorder = recording
+        }
+        return activeRecorder === recording
+    }
+    public func resetActive(_ recording: SpeechRecording) {
+        if activeRecorder === recording {
+            activeRecorder = nil
+        }
+    }
 //    @Published var recordings = [SpeechRecord]()
 //    private var currentRecording : URL?
     public var queue : OperationQueue

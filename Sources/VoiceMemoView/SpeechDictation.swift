@@ -21,11 +21,8 @@ public class SpeechDictation : SpeechRecording {
         super.init(pushToTalk: pushToTalk)
     }
     
-    public override func start(_ completion: ((SpeechRecording, Error?) -> Void)? = nil ) {
-        guard self.isRecording == false else {
-            if let comp = completion {
-                comp(self, SpeechError("Already recording."))
-            }
+    public override func record() {
+        if isRecording {
             return
         }
         if !configureSession() {
@@ -34,18 +31,14 @@ public class SpeechDictation : SpeechRecording {
         let request = SFSpeechAudioBufferRecognitionRequest()
         self.recognitionRequest = request
         request.shouldReportPartialResults = true
-        self.isRecording = true
         let recordingFormat = inputNode.outputFormat(forBus: 0)
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             request.append(buffer)
         }
         if let recognizer = SpeechModel.shared.recognizer {
             recognitionTask = recognizer.recognitionTask(with: request) { result, error in
-                if let err = error {
-                    if let comp = completion {
-                        comp(self,err)
-                    }
-                } else if let result = result {
+                self.error = error
+                if error == nil, let result = result {
                     self.transcription = result.bestTranscription.formattedString
                     self.segments.removeAll()
                     for seg in result.bestTranscription.segments {
@@ -80,6 +73,7 @@ public class SpeechDictation : SpeechRecording {
                         self.recognitionRequest = nil
                         self.recognitionTask = nil
                         self.isRecording = false
+                        super.stop()
                     }
                 }
             }
@@ -87,17 +81,15 @@ public class SpeechDictation : SpeechRecording {
         do {
             audioEngine.prepare()
             try audioEngine.start()
+            self.isRecording = audioEngine.isRunning
         } catch {
             os_log("%@", log: .default, type: .error,
                    "SpeechDictation.start audioEngine.start failed: \(error.localizedDescription)")
-            if let comp = completion {
-                comp(self, error)
-            }
+            self.error = error
         }
     }
 
     public override func stop() {
-        super.stop()
         guard self.isRecording else { return }
         if let task = self.recognitionTask {
             task.finish()

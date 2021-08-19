@@ -14,6 +14,7 @@ public struct VoiceMemoView : View {
     @ObservedObject public var recorder : SpeechRecording
     @ObservedObject public var model = SpeechModel.shared
     @State private var showEnableSpeech = false
+    @State private var otherInUse = false
     @State private var alertInfo : AlertInfo?
     
     public init(recorder: SpeechRecording) {
@@ -56,29 +57,50 @@ public struct VoiceMemoView : View {
                         .foregroundColor(.black)
                         .clipShape(Capsule())
                 }
-                Button(action: {recording(tap: true)}, label: {
-                    if recorder.pushToTalk, recorder.isRecording {
-                        VStack {
-                            Label("", systemImage: "mic.fill").foregroundColor(model.available ? .red : .gray)
+                HStack {
+                    Button(action: {recording(tap: true)}, label: {
+                        if recorder.pushToTalk, recorder.isRecording {
+                            VStack {
+                                Label("", systemImage: "mic.fill")
+                                    .foregroundColor((model.available && !otherInUse) ? .red : .gray)
+                                    .labelStyle(IconOnlyLabelStyle())
+                                    .font( .largeTitle)
+                            }
+                        } else if recorder.isRecording {
+                            Label("", systemImage: "stop.circle").foregroundColor(.red)
                                 .labelStyle(IconOnlyLabelStyle())
-                                .font( .largeTitle)
+                        } else {
+                            Label("", systemImage: "mic.fill")
+                                .foregroundColor((model.available && !otherInUse) ? .red : .gray)
+                                .labelStyle(IconOnlyLabelStyle())
                         }
+                    })
+                    .disabled(otherInUse)
+                    .simultaneousGesture(LongPressGesture(minimumDuration: 0.05).onEnded { _ in
+                        if recorder.pushToTalk {
+                            startRecording()
+                        }
+                    })
+                    if recorder.canPlay {
+                        Button(action: playback, label: {
+                            if recorder.isPlaying {
+                                Label("", systemImage: "stop.circle")
+                                    .labelStyle(IconOnlyLabelStyle())
+                            } else {
+                                Label("", systemImage: "play.fill")
+                                    .labelStyle(IconOnlyLabelStyle())
+                            }
+                        })
+                        .padding(.leading,20)
+                        .disabled(otherInUse)
                     }
-                    else if recorder.isRecording {
-                        Label("", systemImage: "stop.circle").foregroundColor(.red)
-                            .labelStyle(IconOnlyLabelStyle())
-                    } else {
-                        Label("", systemImage: "mic.fill").foregroundColor(model.available ? .red : .gray)
-                            .labelStyle(IconOnlyLabelStyle())
-                    }
-                })
-                .simultaneousGesture(LongPressGesture(minimumDuration: 0.05).onEnded { _ in
-                    if recorder.pushToTalk {
-                        startRecording()
-                    }
-                })
+                }
             }
         }
+        .onReceive(SpeechModel.shared.$activeRecorder, perform: { recorder in
+            self.otherInUse = (recorder != nil && recorder != self.recorder)
+            print("self.otherInUse \(self.otherInUse)")
+        })
         .alert(item: $alertInfo, content: { info in
             if let primary = info.primary, let secondary = info.secondary {
                 return Alert(title: info.title, message: info.message,
@@ -102,10 +124,16 @@ public struct VoiceMemoView : View {
     private func startRecording() {
         if model.available{
             if !recorder.isRecording {
-                recorder.start()
+                recorder.record()
             } else {
                 print("error: push to talk already recording")
             }
+        }
+    }
+    
+    private func playback() {
+        if recorder.canPlay {
+            recorder.play()
         }
     }
     
@@ -117,7 +145,7 @@ public struct VoiceMemoView : View {
                 recorder.stop()
             } else {
                 print("starting recorder")
-                recorder.start()
+                recorder.record()
             }
         } else {
             withAnimation {

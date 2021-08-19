@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52DC27BD26CDC6F800D75AE8 /* VoiceMemoDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27AA26CDC6F600D75AE8 /* VoiceMemoDemoApp.swift */; };
+		52DC27BE26CDC6F800D75AE8 /* VoiceMemoDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27AA26CDC6F600D75AE8 /* VoiceMemoDemoApp.swift */; };
+		52DC27BF26CDC6F800D75AE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27AB26CDC6F600D75AE8 /* ContentView.swift */; };
+		52DC27C026CDC6F800D75AE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27AB26CDC6F600D75AE8 /* ContentView.swift */; };
+		52DC27C126CDC6F800D75AE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DC27AC26CDC6F800D75AE8 /* Assets.xcassets */; };
+		52DC27C226CDC6F800D75AE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52DC27AC26CDC6F800D75AE8 /* Assets.xcassets */; };
+		52DC27D726CDC96F00D75AE8 /* VoiceMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27CF26CDC96E00D75AE8 /* VoiceMemoView.swift */; };
+		52DC27D826CDC96F00D75AE8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52DC27D126CDC96E00D75AE8 /* Localizable.strings */; };
+		52DC27D926CDC96F00D75AE8 /* SpeechRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27D326CDC96E00D75AE8 /* SpeechRecording.swift */; };
+		52DC27DA26CDC96F00D75AE8 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27D426CDC96E00D75AE8 /* SpeechModel.swift */; };
+		52DC27DB26CDC96F00D75AE8 /* VoiceRecording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27D526CDC96E00D75AE8 /* VoiceRecording.swift */; };
+		52DC27DC26CDC96F00D75AE8 /* SpeechDictation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27D626CDC96E00D75AE8 /* SpeechDictation.swift */; };
+		52DC27DE26CDC99C00D75AE8 /* Bundle+Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27DD26CDC99C00D75AE8 /* Bundle+Module.swift */; };
+		52DC27DF26CDC99C00D75AE8 /* Bundle+Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27DD26CDC99C00D75AE8 /* Bundle+Module.swift */; };
+		52DC27E126CDE35A00D75AE8 /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27E026CDE35A00D75AE8 /* VolumeControl.swift */; };
+		52DC27E226CDE35A00D75AE8 /* VolumeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DC27E026CDE35A00D75AE8 /* VolumeControl.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		52DC27AA26CDC6F600D75AE8 /* VoiceMemoDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMemoDemoApp.swift; sourceTree = "<group>"; };
+		52DC27AB26CDC6F600D75AE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		52DC27AC26CDC6F800D75AE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52DC27B126CDC6F800D75AE8 /* VoiceMemoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceMemoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52DC27B426CDC6F800D75AE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52DC27B926CDC6F800D75AE8 /* VoiceMemoDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceMemoDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52DC27BB26CDC6F800D75AE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52DC27BC26CDC6F800D75AE8 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		52DC27CF26CDC96E00D75AE8 /* VoiceMemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceMemoView.swift; sourceTree = "<group>"; };
+		52DC27D226CDC96E00D75AE8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		52DC27D326CDC96E00D75AE8 /* SpeechRecording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecording.swift; sourceTree = "<group>"; };
+		52DC27D426CDC96E00D75AE8 /* SpeechModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
+		52DC27D526CDC96E00D75AE8 /* VoiceRecording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceRecording.swift; sourceTree = "<group>"; };
+		52DC27D626CDC96E00D75AE8 /* SpeechDictation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechDictation.swift; sourceTree = "<group>"; };
+		52DC27DD26CDC99C00D75AE8 /* Bundle+Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Module.swift"; sourceTree = "<group>"; };
+		52DC27E026CDE35A00D75AE8 /* VolumeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeControl.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52DC27AE26CDC6F800D75AE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52DC27B626CDC6F800D75AE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52DC27A426CDC6F500D75AE8 = {
+			isa = PBXGroup;
+			children = (
+				52DC27A926CDC6F600D75AE8 /* Shared */,
+				52DC27CE26CDC96E00D75AE8 /* VoiceMemoView */,
+				52DC27B326CDC6F800D75AE8 /* iOS */,
+				52DC27BA26CDC6F800D75AE8 /* macOS */,
+				52DC27B226CDC6F800D75AE8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52DC27A926CDC6F600D75AE8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				52DC27AA26CDC6F600D75AE8 /* VoiceMemoDemoApp.swift */,
+				52DC27AB26CDC6F600D75AE8 /* ContentView.swift */,
+				52DC27DD26CDC99C00D75AE8 /* Bundle+Module.swift */,
+				52DC27AC26CDC6F800D75AE8 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		52DC27B226CDC6F800D75AE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52DC27B126CDC6F800D75AE8 /* VoiceMemoDemo.app */,
+				52DC27B926CDC6F800D75AE8 /* VoiceMemoDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52DC27B326CDC6F800D75AE8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				52DC27B426CDC6F800D75AE8 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		52DC27BA26CDC6F800D75AE8 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				52DC27BB26CDC6F800D75AE8 /* Info.plist */,
+				52DC27BC26CDC6F800D75AE8 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		52DC27CE26CDC96E00D75AE8 /* VoiceMemoView */ = {
+			isa = PBXGroup;
+			children = (
+				52DC27CF26CDC96E00D75AE8 /* VoiceMemoView.swift */,
+				52DC27D026CDC96E00D75AE8 /* Resources */,
+				52DC27D326CDC96E00D75AE8 /* SpeechRecording.swift */,
+				52DC27D426CDC96E00D75AE8 /* SpeechModel.swift */,
+				52DC27D526CDC96E00D75AE8 /* VoiceRecording.swift */,
+				52DC27E026CDE35A00D75AE8 /* VolumeControl.swift */,
+				52DC27D626CDC96E00D75AE8 /* SpeechDictation.swift */,
+			);
+			name = VoiceMemoView;
+			path = ../Sources/VoiceMemoView;
+			sourceTree = "<group>";
+		};
+		52DC27D026CDC96E00D75AE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				52DC27D126CDC96E00D75AE8 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52DC27B026CDC6F800D75AE8 /* VoiceMemoDemo (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52DC27C526CDC6F800D75AE8 /* Build configuration list for PBXNativeTarget "VoiceMemoDemo (iOS)" */;
+			buildPhases = (
+				52DC27AD26CDC6F800D75AE8 /* Sources */,
+				52DC27AE26CDC6F800D75AE8 /* Frameworks */,
+				52DC27AF26CDC6F800D75AE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VoiceMemoDemo (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "VoiceMemoDemo (iOS)";
+			productReference = 52DC27B126CDC6F800D75AE8 /* VoiceMemoDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52DC27B826CDC6F800D75AE8 /* VoiceMemoDemo (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52DC27C826CDC6F800D75AE8 /* Build configuration list for PBXNativeTarget "VoiceMemoDemo (macOS)" */;
+			buildPhases = (
+				52DC27B526CDC6F800D75AE8 /* Sources */,
+				52DC27B626CDC6F800D75AE8 /* Frameworks */,
+				52DC27B726CDC6F800D75AE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VoiceMemoDemo (macOS)";
+			productName = "VoiceMemoDemo (macOS)";
+			productReference = 52DC27B926CDC6F800D75AE8 /* VoiceMemoDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52DC27A526CDC6F500D75AE8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					52DC27B026CDC6F800D75AE8 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					52DC27B826CDC6F800D75AE8 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 52DC27A826CDC6F500D75AE8 /* Build configuration list for PBXProject "VoiceMemoDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52DC27A426CDC6F500D75AE8;
+			packageReferences = (
+			);
+			productRefGroup = 52DC27B226CDC6F800D75AE8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52DC27B026CDC6F800D75AE8 /* VoiceMemoDemo (iOS) */,
+				52DC27B826CDC6F800D75AE8 /* VoiceMemoDemo (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52DC27AF26CDC6F800D75AE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52DC27C126CDC6F800D75AE8 /* Assets.xcassets in Resources */,
+				52DC27D826CDC96F00D75AE8 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52DC27B726CDC6F800D75AE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52DC27C226CDC6F800D75AE8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52DC27AD26CDC6F800D75AE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52DC27BF26CDC6F800D75AE8 /* ContentView.swift in Sources */,
+				52DC27DE26CDC99C00D75AE8 /* Bundle+Module.swift in Sources */,
+				52DC27D926CDC96F00D75AE8 /* SpeechRecording.swift in Sources */,
+				52DC27DB26CDC96F00D75AE8 /* VoiceRecording.swift in Sources */,
+				52DC27DA26CDC96F00D75AE8 /* SpeechModel.swift in Sources */,
+				52DC27E126CDE35A00D75AE8 /* VolumeControl.swift in Sources */,
+				52DC27D726CDC96F00D75AE8 /* VoiceMemoView.swift in Sources */,
+				52DC27DC26CDC96F00D75AE8 /* SpeechDictation.swift in Sources */,
+				52DC27BD26CDC6F800D75AE8 /* VoiceMemoDemoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52DC27B526CDC6F800D75AE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52DC27C026CDC6F800D75AE8 /* ContentView.swift in Sources */,
+				52DC27BE26CDC6F800D75AE8 /* VoiceMemoDemoApp.swift in Sources */,
+				52DC27DF26CDC99C00D75AE8 /* Bundle+Module.swift in Sources */,
+				52DC27E226CDE35A00D75AE8 /* VolumeControl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		52DC27D126CDC96E00D75AE8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52DC27D226CDC96E00D75AE8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52DC27C326CDC6F800D75AE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		52DC27C426CDC6F800D75AE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		52DC27C626CDC6F800D75AE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X6HB292BR7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nelsonlogic.VoiceMemoDemo;
+				PRODUCT_NAME = VoiceMemoDemo;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52DC27C726CDC6F800D75AE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X6HB292BR7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nelsonlogic.VoiceMemoDemo;
+				PRODUCT_NAME = VoiceMemoDemo;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52DC27C926CDC6F800D75AE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X6HB292BR7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nelsonlogic.VoiceMemoDemo;
+				PRODUCT_NAME = VoiceMemoDemo;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		52DC27CA26CDC6F800D75AE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X6HB292BR7;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nelsonlogic.VoiceMemoDemo;
+				PRODUCT_NAME = VoiceMemoDemo;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52DC27A826CDC6F500D75AE8 /* Build configuration list for PBXProject "VoiceMemoDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52DC27C326CDC6F800D75AE8 /* Debug */,
+				52DC27C426CDC6F800D75AE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52DC27C526CDC6F800D75AE8 /* Build configuration list for PBXNativeTarget "VoiceMemoDemo (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52DC27C626CDC6F800D75AE8 /* Debug */,
+				52DC27C726CDC6F800D75AE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52DC27C826CDC6F800D75AE8 /* Build configuration list for PBXNativeTarget "VoiceMemoDemo (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52DC27C926CDC6F800D75AE8 /* Debug */,
+				52DC27CA26CDC6F800D75AE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52DC27A526CDC6F500D75AE8 /* Project object */;
+}
