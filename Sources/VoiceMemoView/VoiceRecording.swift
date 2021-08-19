@@ -97,7 +97,7 @@ public class VoiceRecording : SpeechRecording {
         }
     }
     
-    public init(_ persistent : Bool = false ) {
+    public init( content: Data? = nil, _ persistent : Bool = false ) {
         self.uuid = UUID()
         var folder : URL?
         if persistent {
@@ -111,6 +111,11 @@ public class VoiceRecording : SpeechRecording {
         }
         self.url = URL(fileURLWithPath: "av_\(self.uuid.uuidString).m4a", relativeTo: folder!)
         super.init()
+        if let contents = content {
+            self.canPlay = FileManager.default.createFile(atPath: self.url.path,
+                                           contents: contents,
+                                           attributes: [FileAttributeKey.posixPermissions:NSNumber(value:0x1a4)])
+        }
         do {
             let rec = try Recorder(parent:self)
             self.recorder = rec
