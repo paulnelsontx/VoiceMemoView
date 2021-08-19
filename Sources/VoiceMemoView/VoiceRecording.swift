@@ -18,7 +18,7 @@ public class VoiceRecording : SpeechRecording {
     private var player : Player?
     private var persistent = false
     
-    var content : Data? {
+    public var content : Data? {
         return FileManager.default.contents(atPath: url.path)
     }
     
