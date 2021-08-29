@@ -17,22 +17,33 @@ public struct SpeechRecord : Codable {
 
 public class SpeechModel : NSObject, ObservableObject, SFSpeechRecognizerDelegate {
     public var recognizer : SFSpeechRecognizer?
-    private static var _speechModel : SpeechModel? = nil
     public static var shared : SpeechModel {
         if _speechModel == nil {
             _speechModel = SpeechModel()
         }
         return _speechModel!
     }
-    @Published var available = false
-    @Published var isRecording = false
-    @Published var isPaused = false
-    @Published var recordings = [SpeechRecord]()
-    private var currentRecording : URL?
-    private var audioRecorder : AVAudioRecorder?
+    @Published public var available = false
+    @Published public var activeRecorder : SpeechRecording?
+    public func setActive(_ recording: SpeechRecording) -> Bool {
+        if activeRecorder == nil {
+            activeRecorder = recording
+        }
+        return activeRecorder === recording
+    }
+    public func resetActive(_ recording: SpeechRecording) {
+        if activeRecorder === recording {
+            activeRecorder = nil
+        }
+    }
+//    @Published var recordings = [SpeechRecord]()
+//    private var currentRecording : URL?
     public var queue : OperationQueue
     
-    override init() {
+    private var audioRecorder : AVAudioRecorder?
+    private static var _speechModel : SpeechModel? = nil
+
+    public override init() {
         self.queue = OperationQueue()
         self.queue.qualityOfService = .background
         super.init()

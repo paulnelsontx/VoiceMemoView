@@ -8,16 +8,37 @@
 
 import SwiftUI
 import Speech
+import os
 
 
 public struct VoiceMemoView : View {
     @ObservedObject public var recorder : SpeechRecording
     @ObservedObject public var model = SpeechModel.shared
     @State private var showEnableSpeech = false
+    @State private var otherInUse = false
     @State private var alertInfo : AlertInfo?
+    @State private var labelColor : Color = Color.red
+    @State private var labelImageName = "mic.fill"
+    @State private var pushState = false
+    var pushGesture : some Gesture {
+        DragGesture(minimumDistance: 0.0, coordinateSpace: .global)
+            .onChanged { _ in
+                if self.pushState == false {
+                    self.startRecording()
+                }
+                self.pushState = true
+            }
+            .onEnded { didEnd in
+                self.pushState = false
+                recorder.stop()
+            }
+    }
     
     public init(recorder: SpeechRecording) {
         self.recorder = recorder
+        if !model.available {
+            labelColor = .gray
+        }
     }
     
     private struct AlertInfo : Identifiable {
@@ -40,15 +61,6 @@ public struct VoiceMemoView : View {
         HStack {
             VStack {
                 if recorder.pushToTalk, recorder.isRecording {
-//                    ZStack(alignment: .center) {
-//                        RoundedRectangle(cornerRadius: 14).foregroundColor(.white)
-//                            .frame(minWidth:100, maxHeight:88)
-//                        Text(recorder.pushToTalkLabel).font(.title)
-//                            .padding(5)
-//                            .background(Color.white)
-//                            .foregroundColor(.black)
-//                            .clipShape(Capsule())
-//                    }
                     Text(recorder.pushToTalkLabel).font(.title)
                         .multilineTextAlignment(.center)
                         .padding(16)
@@ -56,28 +68,39 @@ public struct VoiceMemoView : View {
                         .foregroundColor(.black)
                         .clipShape(Capsule())
                 }
-                Button(action: {recording(tap: true)}, label: {
-                    if recorder.pushToTalk, recorder.isRecording {
-                        VStack {
-                            Label("", systemImage: "mic.fill").foregroundColor(model.available ? .red : .gray)
-                                .labelStyle(IconOnlyLabelStyle())
-                                .font( .largeTitle)
-                        }
-                    }
-                    else if recorder.isRecording {
-                        Label("", systemImage: "stop.circle").foregroundColor(.red)
-                            .labelStyle(IconOnlyLabelStyle())
+                HStack {
+                    if self.otherInUse {
+                        Image(systemName:"mic.fill").foregroundColor(.gray)
+                    } else if recorder.pushToTalk, model.available {
+                        Image(systemName:labelImageName).foregroundColor(labelColor)
+                            .gesture(pushGesture)
                     } else {
-                        Label("", systemImage: "mic.fill").foregroundColor(model.available ? .red : .gray)
-                            .labelStyle(IconOnlyLabelStyle())
+                        Button(action: {recording(tap: true)}, label: {
+                            Label("", systemImage: labelImageName).foregroundColor(labelColor)
+                                .labelStyle(IconOnlyLabelStyle())
+                        })
                     }
-                })
-                .simultaneousGesture(LongPressGesture(minimumDuration: 0.05).onEnded { _ in
-                    if recorder.pushToTalk {
-                        startRecording()
+                    if recorder.canPlay {
+                        Button(action: playback, label: {
+                            if recorder.isPlaying {
+                                Label("", systemImage: "stop.circle")
+                                    .labelStyle(IconOnlyLabelStyle())
+                            } else {
+                                Label("", systemImage: "play.fill")
+                                    .labelStyle(IconOnlyLabelStyle())
+                            }
+                        })
+                        .padding(.leading,20)
+                        .disabled(otherInUse)
                     }
-                })
+                }
             }
+        }
+        .onReceive(SpeechModel.shared.$activeRecorder, perform: { recorder in
+            self.otherInUse = (recorder != nil && recorder != self.recorder)
+        })
+        .onReceive(recorder.$isRecording) { isRecording in
+            labelImageName = isRecording ? "stop.circle" : "mic.fill"
         }
         .alert(item: $alertInfo, content: { info in
             if let primary = info.primary, let secondary = info.secondary {
@@ -94,7 +117,8 @@ public struct VoiceMemoView : View {
         let settings = URL(string: UIApplication.openSettingsURLString)
         if let url = settings {
             UIApplication.shared.open(url, options: [:]) { launched in
-                print("launched settings app \(launched)")
+                os_log("%@", log: .default, type: .debug,
+                       "VoiceMemoView launched settings app")
             }
         }
     }
@@ -102,22 +126,33 @@ public struct VoiceMemoView : View {
     private func startRecording() {
         if model.available{
             if !recorder.isRecording {
-                recorder.start()
+                recorder.record()
             } else {
-                print("error: push to talk already recording")
+                os_log("%@", log: .default, type: .debug,
+                       "error: push to talk already recording")
             }
         }
     }
     
+    private func playback() {
+        if recorder.canPlay, !recorder.isPlaying {
+            recorder.play()
+        } else {
+            recorder.stop()
+        }
+    }
+    
     private func recording(tap: Bool) {
-        print("recording \(recorder.isRecording) tap:\(tap)")
         if model.available{
             if recorder.isRecording {
-                print("stopping recorder")
+                os_log("%@", log: .default, type: .debug,
+                       "VoiceMemoView stopping recorder")
                 recorder.stop()
+                
             } else {
-                print("starting recorder")
-                recorder.start()
+                os_log("%@", log: .default, type: .debug,
+                       "VoiceMemoView starting recorder")
+                recorder.record()
             }
         } else {
             withAnimation {
