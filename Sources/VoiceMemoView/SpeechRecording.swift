@@ -72,7 +72,8 @@ public class SpeechRecording : NSObject, ObservableObject {
             let type = AVAudioSession.InterruptionType(rawValue: typeValue) else {
                 return
         }
-        print("handleInterruptions: type: \(type), \(userInfo)")
+        os_log("%@", log: .default, type: .debug,
+               "SpeechRecording handleInterruptions: type: \(type), \(userInfo)")
         if type == .began {
             interruptionBegan()
         } else if type == .ended {

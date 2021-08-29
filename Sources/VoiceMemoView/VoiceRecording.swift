@@ -50,13 +50,11 @@ public class VoiceRecording : SpeechRecording {
             self.recorder.delegate = self
         }
         func stop() {
-            print("Record.stop isRecording=\(self.recorder.isRecording)")
             self.recorder.stop()
             parent.recorderDidFinishRecording(successfully: true)
         }
         func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder,
                                              successfully flag: Bool) {
-            print("audioRecorderDidFinishRecording flag=\(flag)")
             parent.recorderDidFinishRecording(successfully: flag)
         }
         func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder,

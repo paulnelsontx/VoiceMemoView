@@ -7,7 +7,7 @@
 
 import SwiftUI
 import MediaPlayer
-
+import os
 
 struct VolumeControl : UIViewRepresentable {
     typealias UIViewType = MPVolumeView
@@ -21,6 +21,7 @@ struct VolumeControl : UIViewRepresentable {
     }
     
     static func dismantleUIView(_ uiView: MPVolumeView, coordinator: ()) {
-        print("dismantle VolumeControlView")
+        os_log("%@", log: .default, type: .error,
+               "VolumeControl dismantleUIView" )
     }
 }
