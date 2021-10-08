@@ -9,14 +9,24 @@ import SwiftUI
 import MediaPlayer
 import os
 
-public struct VolumeControl : UIViewRepresentable {
+public struct VolumeSlider : UIViewRepresentable {
     public typealias UIViewType = MPVolumeView
     
     public func makeUIView(context: Context) -> MPVolumeView {
-        return MPVolumeView(frame: CGRect.zero)
+        let result = MPVolumeView(frame: CGRect.zero)
+        return result
     }
     
     public func updateUIView(_ uiView: MPVolumeView, context: Context) {
+        // eliminate deprecated routing button from the layout because it makes the slider
+        // appear off center
+        for subview in uiView.subviews {
+            if let routeButton = subview as? UIButton {
+                var frame = routeButton.frame
+                frame.size.width = 0
+                routeButton.frame = frame
+            }
+        }
         uiView.setNeedsLayout()
     }
     
@@ -26,6 +36,22 @@ public struct VolumeControl : UIViewRepresentable {
     }
     
     public init() {
-        // to allow for public initialization
+    }
+}
+
+public struct VolumeControl : View {
+    
+    public var body: some View {
+        HStack(alignment: .center, spacing: 10.0) {
+            Label("", systemImage:"speaker.wave.1")
+            VolumeSlider().frame(maxHeight:20.0)
+            Label("", systemImage:"speaker.wave.3")
+        }.padding(20)
+    }
+}
+
+struct VolumeControl_Previews: PreviewProvider {
+    static var previews: some View {
+        VolumeControl()
     }
 }
