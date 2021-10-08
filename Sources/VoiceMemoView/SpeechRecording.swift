@@ -46,8 +46,15 @@ public class SpeechRecording : NSObject, ObservableObject {
         }
         let sess = AVAudioSession.sharedInstance()
         do {
-            try sess.setCategory(.playAndRecord, mode: .default, options: [.duckOthers, .defaultToSpeaker])
+            try sess.setCategory(.playAndRecord, mode: .default, options: [.duckOthers,
+                                                                           .interruptSpokenAudioAndMixWithOthers,
+                                                                           .defaultToSpeaker])
             try sess.setActive(true, options: .notifyOthersOnDeactivation)
+            if let _ = sess.availableModes.firstIndex(of: .spokenAudio) {
+                do {
+                    try sess.setMode(.spokenAudio)
+                } catch { }
+            }
             self.session = sess
             self.observing =
                 NotificationCenter.default.addObserver(
