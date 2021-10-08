@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import VoiceMemoView
+//import VoiceMemoView
 
 struct ContentView: View {
     @ObservedObject var voiceRecording = VoiceRecording()

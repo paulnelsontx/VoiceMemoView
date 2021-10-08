@@ -9,18 +9,18 @@ import SwiftUI
 import MediaPlayer
 import os
 
-struct VolumeControl : UIViewRepresentable {
-    typealias UIViewType = MPVolumeView
+public struct VolumeControl : UIViewRepresentable {
+    public typealias UIViewType = MPVolumeView
     
-    func makeUIView(context: Context) -> MPVolumeView {
+    public func makeUIView(context: Context) -> MPVolumeView {
         return MPVolumeView(frame: CGRect.zero)
     }
     
-    func updateUIView(_ uiView: MPVolumeView, context: Context) {
+    public func updateUIView(_ uiView: MPVolumeView, context: Context) {
         uiView.setNeedsLayout()
     }
     
-    static func dismantleUIView(_ uiView: MPVolumeView, coordinator: ()) {
+    public static func dismantleUIView(_ uiView: MPVolumeView, coordinator: ()) {
         os_log("%@", log: .default, type: .error,
                "VolumeControl dismantleUIView" )
     }
