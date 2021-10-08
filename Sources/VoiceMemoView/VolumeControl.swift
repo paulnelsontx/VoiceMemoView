@@ -24,4 +24,8 @@ public struct VolumeControl : UIViewRepresentable {
         os_log("%@", log: .default, type: .error,
                "VolumeControl dismantleUIView" )
     }
+    
+    public init() {
+        // to allow for public initialization
+    }
 }
