@@ -48,6 +48,9 @@ public struct VolumeControl : View {
             Label("", systemImage:"speaker.wave.3")
         }.padding(20)
     }
+    
+    public init() {
+    }
 }
 
 struct VolumeControl_Previews: PreviewProvider {
