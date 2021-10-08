@@ -28,6 +28,8 @@ struct ContentView: View {
             }
             Text(dictation.transcription)
             Spacer()
+            VolumeControl()
+            Spacer()
         }
         .onReceive(voiceRecording.$canPlay) { canPlay in
             if canPlay {
